@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>hello_react</title>
+    <title>使用js创建虚拟DOM</title>
 </head>
 
 <body>
@@ -12,11 +12,11 @@
 
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    <script type="text/babel">
-        // 1. 创建虚拟 DOM
-        const VDOM = <h1>Hello,React</h1>
+    <script type="text/javascript">
+        // 1. 创建虚拟 DOM 
+        // js 创建循环套娃太麻烦了
+        const VDOM = React.createElement('h1',{id:'title'},React.createElement('span',{},'Hello,React'))
         // 2. 渲染虚拟 DOM 到页面
         ReactDOM.render(VDOM,document.getElementById('test'))
     </script>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>hello_react</title>
+    <title>使用jsx创建虚拟DOM</title>
 </head>
 
 <body>
@@ -16,7 +16,12 @@
 
     <script type="text/babel">
         // 1. 创建虚拟 DOM
-        const VDOM = <h1>Hello,React</h1>
+        // jsx其实是语法糖，本质上是js创建的方式，但写起来方便
+        const VDOM = (
+            <h1 id="title">
+                <span>Hello,React</span>
+            </h1>
+        )
         // 2. 渲染虚拟 DOM 到页面
         ReactDOM.render(VDOM,document.getElementById('test'))
     </script>
