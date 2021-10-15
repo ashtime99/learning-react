@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx小练习</title>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="test"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        /* 
+           一定注意区分:【js语句(代码)】与【js.表达式】
+            1.表达式:一个表达式会产生一个值。可以放在任何一个需要值的地方
+                下面这些都是表达式
+                (1). a
+                (2). a+b(3). 
+                (3). demo(1)
+                (4). arr.map()
+                (5). function test(){}
+            2.语句(代码):
+                下面这些都是语句(代码):
+                (1). if(){}
+                (2). for(){}
+                (3). switch(){case : xxxx}
+        */
+        const data=['小夏','小桃']
+
+        const VDOM = (
+            <div>
+                <ul>
+                    {
+                        data.map((item,index)=>{
+                            return <li key={index}>{item}</li>
+                        })
+                    }
+                </ul>
+            </div>
+        )
+        
+        // 2. 渲染虚拟 DOM 到页面
+        ReactDOM.render(VDOM,document.getElementById('test'))
+    </script>
+</body>
+
+</html>
