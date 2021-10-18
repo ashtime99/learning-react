@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>state</title>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="test"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class MyComponent extends React.Component{
+            //constructor调用几次? — 1次
+            constructor(props){
+                super(props)
+                // 初始化
+                this.state={isLue:false}
+                // 解决 changeContent 中的指向问题
+                this.changeContent=this.changeContent.bind(this)
+            }
+            //render调用几次? — 1+n次，1是初始化的那次，n是状态更新的次数
+            render(){
+                console.log(this)
+                // 赋值
+                const {isLue}=this.state
+                return(
+                    <div>
+                        <h2 onClick={this.changeContent}>今天的月亮真好看{isLue==true?"，你也是。":"。"}</h2>
+                    </div>
+                )
+            }
+            //changeweather调用几次? — 点几次调几次
+            changeContent(){
+                // 由于 changeContent 是作为 onClick 的回调，所以不是通过实例调用的，是直接调用
+                // 类中的方法默认开启了局部的严格模式，所以 changeContent 中的 this 为 undefined
+                // console.log("修改值",this.state.isLue)
+                const isLue=this.state.isLue
+                // 注意！！状态（state）不可以直接更改
+                // 错误实例：this.state.isLue=!isLue
+                //严重注意:状态必须通过setstate进行更新,且更新是一种合并，不是替换。
+                this.setState({isLue:!isLue})
+            }
+        }
+
+        ReactDOM.render(<MyComponent/>,document.getElementById('test'))
+
+        
+    </script>
+</body>
+
+</html>

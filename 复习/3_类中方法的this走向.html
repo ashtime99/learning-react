@@ -22,33 +22,15 @@
             talk(){
                 // talk方法放在了哪里?—类的原型对象上，供实例使用
                 // 通过Person实例调用talk时， talk中的this就是Person实例
-                console.log(`我叫${this.name},${this.age}岁`)
-            }
-        }
-        // 继承
-        class Student extends Person{
-            constructor(name,age,sex){
-                super(name,age)
-                this.sex=sex
-            }
-            // 重写
-            talk(){
-                console.log(`我叫${this.name},${this.age}岁,性别：${this.sex}`)
+                console.log(this)
             }
         }
 
         const p1 = new Person ('小超',24)
-        const p2 = new Person ('小郭',25)
-
-        const s1=new Student('小魏',22,'男')
-
-        console.log('p1', p1)
-        console.log('p2', p2)
-        console.log('s1', s1)
-
         p1.talk()
-        p2.talk()
-        s1.talk()
+        const x=p1.talk
+        x()
+
     </script>
 </body>
 
