@@ -1,6 +1,6 @@
 # learning-react
 学习React
-根据  
+[视频地址](https://www.bilibili.com/video/BV1wy4y1D7JT?share_source=copy_web)
 
 ## React 是什么？
 **React** 是用于构建用户界面的 `javaScript` 的库
