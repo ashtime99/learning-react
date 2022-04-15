@@ -32,22 +32,22 @@
                 (2). for(){}
                 (3). switch(){case : xxxx}
         */
-        const data=['小夏','小桃']
+        const data = ['小夏', '小桃']
 
         const VDOM = (
             <div>
                 <ul>
                     {
-                        data.map((item,index)=>{
+                        data.map((item, index) => {
                             return <li key={index}>{item}</li>
                         })
                     }
                 </ul>
             </div>
         )
-        
+
         // 2. 渲染虚拟 DOM 到页面
-        ReactDOM.render(VDOM,document.getElementById('test'))
+        ReactDOM.render(VDOM, document.getElementById('test'))
     </script>
 </body>
 

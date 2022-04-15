@@ -11,6 +11,8 @@
 <body>
     <!-- 准备一个容器 -->
     <div id="test"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
 
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
@@ -30,12 +32,12 @@
                 )
             }
         }
-
-        //ReactDOM.render(<Person name="小超" age="18" sex="男"/>,document.getElementById('test'))
+        ReactDOM.render(<Person name="小超" age="18" sex="男"/>,document.getElementById('test2'))
         const p={name:'小红',age:22,sex:'女'}
+        // 批量传递参数 ...是展开运算符，原生不能直接传递展开对象，react+babel 可以但仅限于此
         ReactDOM.render(<Person {...p}/>,document.getElementById('test'))
-       
-
+        // 传 number 类型的问题，传参需要限制
+        ReactDOM.render(<Person name="小桃" age={18+1} sex="女"/>,document.getElementById('test3'))
         
     </script>
 </body>
